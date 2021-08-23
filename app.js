@@ -56,9 +56,23 @@ app.get('/albums/:artistId', (req, res) => {
         res.render('view_albums', 
         {
             Album: data.body.items,
+            ArtistId: artistId
         });
     })
     .catch(error => console.log(error));
+
+});
+
+app.get('/albums/tracks/:albumId', (req, res) => {
+    const params = req.params;
+    
+    spotifyAPI.getAlbumTracks(params.albumId)
+    .then(data => {
+        res.render('tracks', {
+            Tracks: data.body.items
+        });
+    })
+
 
 });
 

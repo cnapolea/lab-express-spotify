@@ -1,0 +1,15 @@
+{{>navbar}}
+
+<ul class="tracks-list">
+    {{#each Tracks}}
+        <li>
+            <p>
+                <span>{{track_number}}. </span>
+                {{name}}   
+            </p>
+            <audio controls src="{{preview_url}}">
+                
+            </audio>
+        </li>
+    {{/each}}
+</ul>
